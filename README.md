@@ -2,16 +2,16 @@
 
 #### By Cristina Plesa
 
-#### A C# application that uses an API call.
+#### A C# application that uses a built in API database for National and State parks.
 
 ## Technologies Used
 
 * C#
 * Entity Framework
-* Identity
 * .NET 5 SDK
 * VS Code
 * MySQL Workbench
+* Swagger through Swashbuckle
 * License
 * MIT License.
 
