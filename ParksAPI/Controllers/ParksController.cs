@@ -21,7 +21,7 @@ namespace ParksAPI.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get(string name, string location, string review)
+    public ActionResult<IEnumerable<Park>> Get(string name, string address, string city, string state, string review)
     {
         var query = _db.Parks.AsQueryable();
 
@@ -30,9 +30,19 @@ namespace ParksAPI.Controllers
         query = query.Where(entry => entry.Name == name);
         }
 
-        if (location != null)
+        if (address != null)
         {
-        query = query.Where(entry => entry.Location == location);
+        query = query.Where(entry => entry.Address == address);
+        }
+
+        if (city != null)
+        {
+        query = query.Where(entry => entry.City == city);
+        }
+
+        if (state != null)
+        {
+        query = query.Where(entry => entry.State == state);
         }
 
         if (review != null)
