@@ -10,6 +10,7 @@ namespace ParksAPI.Models
     }
 
     public DbSet<Park> Parks { get; set; }
+    public DbSet<ParkUser> ParkUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
