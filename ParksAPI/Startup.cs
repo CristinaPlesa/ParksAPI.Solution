@@ -24,6 +24,8 @@ namespace ParksAPI
             services.AddDbContext<ParksAPIContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
+            // register the swagger generator
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,13 +35,13 @@ namespace ParksAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            // enable middleware to server generated swagger as JSON endpoint
+            app.UseSwagger();
+            // enable middleware to server swagger-ui on the swagger JSON endpoint
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CodingBoard API"));
             // app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
