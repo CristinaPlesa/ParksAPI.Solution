@@ -38,7 +38,7 @@ namespace ParksAPI
             // enable middleware to server generated swagger as JSON endpoint
             app.UseSwagger();
             // enable middleware to server swagger-ui on the swagger JSON endpoint
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CodingBoard API"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Parks API"));
             // app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
